@@ -16,10 +16,9 @@ public class StepDefinition {
         System.out.println("Navigated to Login url");
     }
 
-    @When("^User login into application with username and password$")
-    public void user_login_into_application_with_username_and_password() throws Throwable {
-        //login with user and pass
-        System.out.println("logged in successfully");
+    @When("^User login into application with \"([^\"]*)\" and password \"([^\"]*)\"$")
+    public void user_login_into_application_with_and_password(String arg1, String arg2) throws Throwable {
+        System.out.println("User logged in with username: " + arg1);
     }
 
     @Then("^Home page is populated$")
@@ -28,9 +27,8 @@ public class StepDefinition {
         System.out.println("Main page is populated");
     }
 
-    @And("^Cards are displayed$")
-    public void cards_are_displayed() throws Throwable {
-        //cards displayed
-        System.out.println("Validated cards");
+    @Then("^Cards are displayed are \"([^\"]*)\"$")
+    public void cards_are_displayed_are(String arg1) throws Throwable {
+        System.out.println("Cards are displayed: " + arg1);
     }
 }

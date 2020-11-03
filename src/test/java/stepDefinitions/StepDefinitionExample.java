@@ -1,4 +1,4 @@
-package stepDefinition;
+package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.Given;
@@ -7,7 +7,7 @@ import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-public class StepDefinition {
+public class StepDefinitionExample {
 
     @Given("^User is on landing page$")
     public void user_is_on_landing_page() throws Throwable {

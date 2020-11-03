@@ -13,6 +13,8 @@ import io.restassured.specification.ResponseSpecification;
 import org.junit.Assert;
 import pojo.AddPlace;
 import pojo.Location;
+import resources.MapsTestData;
+import resources.Utils;
 import utilities.RawToJson;
 
 import java.util.ArrayList;
@@ -20,37 +22,18 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class AddPlaceSteps {
+public class AddPlaceSteps extends Utils {
     RequestSpecification reqSpecPostPlace;
     ResponseSpecification responseSpecPostPlace;
     Response responsePostPlace;
+    MapsTestData mapsData = new MapsTestData();
 
 
     @Given("Add place payload")
     public void add_place_payload() {
-        AddPlace addPlace = new AddPlace();
-        addPlace.setAccuracy(50);
-        addPlace.setAddress("Macskakő utca 4.");
-        addPlace.setLanguage("HUN");
-        addPlace.setPhone_number("0620777189666");
-        addPlace.setWebsite("valami.com");
-        addPlace.setName("Náme");
-        List<String> myList = new ArrayList<String>();
-        myList.add("type1");
-        myList.add("shop");
-        addPlace.setTypes(myList);
-        Location location = new Location();
-        location.setLat(-38.999999);
-        location.setLng(33.424255);
-        addPlace.setLocation(location);
-
-
-        RequestSpecification reqAddplace = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
-                .addQueryParam("key", "qaclick123")
-                .setContentType(ContentType.JSON).build();
 //         responseSpecPostPlace = new ResponseSpecBuilder().expectStatusCode(200)
 //                .expectContentType(ContentType.JSON);
-         reqSpecPostPlace = given().spec(reqAddplace).body(addPlace);
+         reqSpecPostPlace = given().spec(requestSpecification()).body(mapsData.addPlacePayload());
 
     }
 

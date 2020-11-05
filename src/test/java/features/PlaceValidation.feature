@@ -10,3 +10,4 @@ Feature: Validating place APIs
     Examples:
       | name  | language | address       |
       |AAhouse| HUN      | macska utca 4.|
+      |NameTst| US       | valami utca3. |

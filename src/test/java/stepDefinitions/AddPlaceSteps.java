@@ -3,23 +3,17 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.Assert;
-import pojo.AddPlace;
-import pojo.Location;
 import resources.MapsTestData;
 import resources.Utils;
 import utilities.RawToJson;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
 
@@ -31,7 +25,7 @@ public class AddPlaceSteps extends Utils {
 
 
     @Given("Add place payload")
-    public void add_place_payload() throws FileNotFoundException {
+    public void add_place_payload() throws IOException {
 //         responseSpecPostPlace = new ResponseSpecBuilder().expectStatusCode(200)
 //                .expectContentType(ContentType.JSON);
          reqSpecPostPlace = given().spec(requestSpecification()).body(mapsData.addPlacePayload());

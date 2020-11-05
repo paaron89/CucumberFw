@@ -6,20 +6,26 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.util.Properties;
 
 public class Utils {
     RequestSpecification reqAddplace;
-    public RequestSpecification requestSpecification() throws FileNotFoundException {
+    public RequestSpecification requestSpecification() throws IOException {
 
         PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
-        reqAddplace = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
+        reqAddplace = new RequestSpecBuilder().setBaseUri(getGolbalValue("baseUrl"))
                 .addQueryParam("key", "qaclick123")
                 .addFilter(RequestLoggingFilter.logRequestTo(log))
                 .addFilter(ResponseLoggingFilter.logResponseTo(log))
                 .setContentType(ContentType.JSON).build();
         return reqAddplace;
+    }
+
+    public static String getGolbalValue(String propertyKey) throws IOException {
+        Properties prop = new Properties();
+        FileInputStream propfile = new FileInputStream("src/test/java/resources/golbal.properties");
+        prop.load(propfile);
+        return prop.getProperty(propertyKey);
     }
 }

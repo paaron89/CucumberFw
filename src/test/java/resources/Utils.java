@@ -10,8 +10,11 @@ import java.io.*;
 import java.util.Properties;
 
 public class Utils {
-    RequestSpecification reqAddplace;
+    public static RequestSpecification reqAddplace;
+
     public RequestSpecification requestSpecification() throws IOException {
+
+        if(reqAddplace == null){
 
         PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
         reqAddplace = new RequestSpecBuilder().setBaseUri(getGolbalValue("baseUrl"))
@@ -19,6 +22,8 @@ public class Utils {
                 .addFilter(RequestLoggingFilter.logRequestTo(log))
                 .addFilter(ResponseLoggingFilter.logResponseTo(log))
                 .setContentType(ContentType.JSON).build();
+        return reqAddplace;
+        }
         return reqAddplace;
     }
 

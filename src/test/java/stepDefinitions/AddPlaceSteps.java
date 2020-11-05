@@ -24,11 +24,12 @@ public class AddPlaceSteps extends Utils {
     MapsTestData mapsData = new MapsTestData();
 
 
-    @Given("Add place payload")
-    public void add_place_payload() throws IOException {
+    @Given("Add place payload with {string} {string} {string}")
+    public void add_place_payload(String name, String language, String address) throws IOException {
 //         responseSpecPostPlace = new ResponseSpecBuilder().expectStatusCode(200)
 //                .expectContentType(ContentType.JSON);
-         reqSpecPostPlace = given().spec(requestSpecification()).body(mapsData.addPlacePayload());
+         reqSpecPostPlace = given().spec(requestSpecification())
+                 .body(mapsData.addPlacePayload(name, language, address));
 
     }
 

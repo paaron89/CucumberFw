@@ -8,15 +8,15 @@ import java.util.List;
 
 public class MapsTestData {
 
-    public AddPlace addPlacePayload(){
+    public AddPlace addPlacePayload(String name, String language, String address){
 
         AddPlace addPlace = new AddPlace();
         addPlace.setAccuracy(50);
-        addPlace.setAddress("Macskakő utca 4.");
-        addPlace.setLanguage("HUN");
+        addPlace.setAddress(address);
+        addPlace.setLanguage(language);
         addPlace.setPhone_number("0620777189666");
         addPlace.setWebsite("valami.com");
-        addPlace.setName("Náme");
+        addPlace.setName(name);
         List<String> myList = new ArrayList<String>();
         myList.add("type1");
         myList.add("shop");

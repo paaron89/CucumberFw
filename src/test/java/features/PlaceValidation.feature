@@ -1,5 +1,6 @@
 Feature: Validating place APIs
 
+  @AddPlace
   Scenario Outline: Verify add place functionlity
     Given Add place payload with "<name>" "<language>" "<address>"
     When user calls "addPlaceAPI" with "POST" http request
@@ -12,3 +13,9 @@ Feature: Validating place APIs
       | name  | language | address       |
       |AAhouse| HUN      | macska utca 4.|
       |NameTst| US       | valami utca3. |
+
+  @DeletePlace
+  Scenario:  Verify if delete place functionality is working
+    Given DeletePlace payload
+    When user calls "deletePlaceAPI" with "POST" http request
+    Then the API call got success with status code 200

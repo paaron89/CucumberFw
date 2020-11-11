@@ -28,4 +28,8 @@ public class MapsTestData {
         return addPlace;
     }
 
+    public String deletePlaceApi(String placeId){
+        return "{\r\n    \"place_id\":\""+placeId+"\"\r\n}";
+    }
+
 }

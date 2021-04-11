@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
     @RunWith(Cucumber.class)
     @CucumberOptions(
-            features = "src\\test\\java\\features",
+            features = "src\\test\\java\\BackendFeatures",
             glue = "stepDefinitions"
             //tags = {"@DeletePlace"}
     )
-    public class TestRunner {
+    public class BETestRunner {
 }

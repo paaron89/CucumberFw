@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
             glue = "stepDefinitions"
             //tags = {"@DeletePlace"}
     )
-    public class BETestRunner {
+    public class CucumberRunnerBeTests {
 }

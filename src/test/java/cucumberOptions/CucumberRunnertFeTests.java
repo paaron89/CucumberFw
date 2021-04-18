@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
         features = "src\\test\\java\\FrontendFeatures",
         glue = "stepDefinitions"
 )
-public class FETestRunner {
+public class CucumberRunnertFeTests {
 }
